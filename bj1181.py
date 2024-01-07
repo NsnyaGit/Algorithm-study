@@ -12,7 +12,7 @@ while N > 0:
 
 word_list = list(set(word_list))
 word_list.sort()
-word_list.sort(key = lambda word_len : len(word_len))
+word_list.sort(key = lambda word_len : len(word_len)) # key값 설정으로 조건에 따라 정렬 가능 !
 
 print("".join(word_list))
 
