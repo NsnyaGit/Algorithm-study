@@ -23,3 +23,18 @@ while N > 0:
     if is_group_word: cnt += 1
     N-= 1
 print(cnt)
+
+
+# sorted, key 를 사용한 2번째 방법
+# import sys
+
+# N = int(sys.stdin.readline())
+
+# cnt = 0
+# while N >0:
+#     word = sys.stdin.readline().rstrip('\n')
+#     if list(word) == sorted(word,key=word.find):
+#         cnt+=1
+#     N-=1
+
+# print(cnt)
