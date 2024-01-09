@@ -1,2 +1,1 @@
-
-print(cnt)
+# print("".join(sorted(num, reverse=True)))
