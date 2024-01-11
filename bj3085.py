@@ -42,7 +42,7 @@ while N > 0:
     N-=1
 
 ret = 0
-result = 3
+result = 1
 
 # 가로
 for i in range(len(n_lst)):
