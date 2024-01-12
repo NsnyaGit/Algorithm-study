@@ -11,4 +11,5 @@ value_of_coin = []
 for i in range(n):
     value_of_coin.append(int(sys.stdin.readline()))
 
-value_of_coin.sort()
+for r in range(n):
+    
