@@ -10,6 +10,3 @@ n,k= map(int,sys.stdin.readline().split())
 value_of_coin = []
 for i in range(n):
     value_of_coin.append(int(sys.stdin.readline()))
-
-for r in range(n):
-    
