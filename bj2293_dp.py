@@ -4,9 +4,16 @@
 
 import sys
 
-
 n,k= map(int,sys.stdin.readline().split())
-
-value_of_coin = []
+coin_lst = []
 for i in range(n):
-    value_of_coin.append(int(sys.stdin.readline()))
+    coin_lst.append(int(sys.stdin.readline()))
+
+dp = [0] * (k+1)
+dp[0] = 1
+for i in coin_lst:
+    for j in range(i,k+1):
+        dp[j] = dp[j] + dp[j-i]
+
+print(dp[k])
+
