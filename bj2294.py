@@ -7,8 +7,7 @@ coin_lst = []
 for i in range(n):
     coin_lst.append(int(sys.stdin.readline()))
 
-dp = [-1] * (k+1)
-dp[0] = 0
+dp = [0]+[-1] * k
 
 for i in range(1, k+1):
     lst = []
