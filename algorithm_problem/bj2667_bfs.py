@@ -3,10 +3,12 @@
 from collections import deque
 import sys
 input = sys.stdin.readline
+N = int(input())
+graph = [(list(map(int,(list(input().rstrip("\n")))))) for _ in range(N)]
+dx = [0,0,1,-1]
+dy = [1,-1,0,0]
 
 def bfs(graph,x,y):
-    dx = [0,0,1,-1]
-    dy = [1,-1,0,0]
     n = len(graph)
     queue = deque()
     queue.append((x,y))
@@ -27,20 +29,13 @@ def bfs(graph,x,y):
     
     return cnt
 
-if __name__ == "__main__":
-    N = int(input())
-    graph = []
-    result = []
+result = []
+for i in range(N):
+    for j in range(N):
+        if graph[i][j] == 1:
+            result.append(bfs(graph,i,j))
 
-    for i in range(N):
-        graph.append(list(map(int,(list(input().rstrip("\n"))))))
-    
-    for i in range(N):
-        for j in range(N):
-            if graph[i][j] == 1:
-                result.append(bfs(graph,i,j))
-    
-    result.sort()
-    print(len(result))
-    for i in result:
-        print(i)
+result.sort()
+print(len(result))
+for i in result:
+    print(i)
