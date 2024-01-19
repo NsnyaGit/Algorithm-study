@@ -17,5 +17,4 @@ for i in range(1, len(lst)):
             break
     if tmp == 0: ans.append(lst[i])
         
-
 print(len(ans))
