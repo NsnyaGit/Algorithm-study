@@ -1,6 +1,7 @@
 #https://www.acmicpc.net/problem/2504
 
 import sys
+import re
 from collections import deque
 
 
@@ -29,3 +30,5 @@ if len(stack) != 0:
     is_valid = 0
 
 #괄호열 계산
+stack.replace('()','2')
+stack.replace('[]','3')
