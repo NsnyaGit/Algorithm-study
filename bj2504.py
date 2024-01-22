@@ -1,34 +1,32 @@
 #https://www.acmicpc.net/problem/2504
 
-import sys
-import re
 from collections import deque
 
-
-sign = sys.stdin.readline().rstrip("\n")
+sign = input()
 stack = deque()
-check_val = 0
-is_valid = 1
-#올바른 괄호열인지 판단
-for i in sign:
-    if i == '(' or i == '[':
-        stack.append(i)
-    else:
-        if len(stack) == 0:
-            is_valid = 0
-            break
-        check_val = stack.pop()
-        if i == ')':
-            if check_val != '(':
-                is_valid = 0
-                break
-        elif i == ']':
-            if check_val != '[':
-                is_valid = 0
-                break
-if len(stack) != 0:
-    is_valid = 0
+ans = 0
+tmp = 1
 
-#괄호열 계산
-stack.replace('()','2')
-stack.replace('[]','3')
+for i in sign:
+    if i == '(':
+        stack.append(i)
+        tmp *= 2
+    elif i == '[':
+        stack.append(i)
+        tmp *= 3
+    elif i == ')':
+        if not stack or stack[-1] == '[':
+            ans = 0
+            break  
+        stack.pop()
+        if not stack:
+            ans += tmp
+            tmp = 1
+    else:
+        if not stack or stack[-1] == '(':
+            ans = 0
+            break
+        stack.pop()
+        if not stack:
+            ans += tmp
+            tmp = 1
