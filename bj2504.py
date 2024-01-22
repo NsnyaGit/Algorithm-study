@@ -11,4 +11,7 @@ stack = deque()
 #올바른 괄호열인지 판단
 
 for i in sign:
-    print(i)
+    if i == '(' or i == '[':
+        stack.append()
+    else:
+        
