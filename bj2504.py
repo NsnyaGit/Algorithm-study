@@ -1,32 +1,36 @@
 #https://www.acmicpc.net/problem/2504
 
-from collections import deque
 
 sign = input()
-stack = deque()
+stack = []
 ans = 0
 tmp = 1
 
-for i in sign:
-    if i == '(':
-        stack.append(i)
+for i in range(len(sign)):
+    if sign[i] == '(':
+        stack.append(sign[i])
         tmp *= 2
-    elif i == '[':
-        stack.append(i)
+    elif sign[i] == '[':
+        stack.append(sign[i])
         tmp *= 3
-    elif i == ')':
+    elif sign[i] == ')':
         if not stack or stack[-1] == '[':
             ans = 0
-            break  
-        stack.pop()
-        if not stack:
+            break
+        if sign[i-1] == '(':  
             ans += tmp
-            tmp = 1
+        stack.pop()
+        tmp //= 2
     else:
         if not stack or stack[-1] == '(':
             ans = 0
             break
-        stack.pop()
-        if not stack:
+        if sign[i-1] == '[':
             ans += tmp
-            tmp = 1
+        stack.pop()
+        tmp //= 3
+
+if not stack:
+    print(ans)
+else:
+    print(0)
