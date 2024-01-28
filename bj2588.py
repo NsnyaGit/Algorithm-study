@@ -2,7 +2,6 @@
 
 a = int(input())
 b = input()
-
-for i in range(1,len(b)+1):
-    print(a * (int(b[-i])))
+for i in b[::-1]:
+    print(a * int(i))
 print(a*int(b))
